@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Did the Ad Work? — A/B Test Case Study</title>
-<meta name="description" content="An A/B test of an advertising campaign across 588,101 users: frequentist, bootstrap and Bayesian analysis.">
+<title>Should We Keep the Ad? — A/B Test Case Study</title>
+<meta name="description" content="A decision-first A/B test case study: does an ad campaign cause purchases, is it worth the money, and where does it work?">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -38,52 +38,70 @@ nav.top a{color:var(--ink);text-decoration:none}
 nav.top .links{display:flex;gap:20px}
 
 /* hero */
-.hero{padding:72px 0 56px;display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:end}
+.hero{padding:72px 0 56px;display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:end}
 .kicker{font:600 .78rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--hi);margin-bottom:22px}
-h1{font:350 clamp(2.6rem,7vw,5.4rem)/.98 var(--serif-d);letter-spacing:-.025em;font-variation-settings:"SOFT" 50}
+h1{font:350 clamp(2.5rem,6.4vw,4.9rem)/1 var(--serif-d);letter-spacing:-.025em;font-variation-settings:"SOFT" 50}
 h1 em{font-style:italic;font-weight:300;color:var(--ad)}
-.dek{font-size:1.3rem;line-height:1.5;color:var(--ink-soft);margin-top:26px;max-width:34ch}
-.verdict{border:1.5px solid var(--ink);padding:26px 26px 22px;background:var(--paper-2);position:relative}
-.verdict::before{content:"VERDICT";position:absolute;top:-10px;left:18px;background:var(--paper);padding:0 8px;
+.dek{font-size:1.25rem;line-height:1.5;color:var(--ink-soft);margin-top:26px;max-width:36ch}
+.verdict{border:1.5px solid var(--ink);padding:28px 26px 22px;background:var(--paper-2);position:relative}
+.verdict::before{content:"RECOMMENDATION";position:absolute;top:-10px;left:18px;background:var(--paper);padding:0 8px;
   font:600 .72rem/1.4 var(--mono);letter-spacing:.14em}
-.big{font:300 clamp(4rem,10vw,6.4rem)/.9 var(--serif-d);color:var(--ad);letter-spacing:-.04em}
-.big small{font-size:.35em;letter-spacing:0;color:var(--ink-soft)}
-.verdict p{margin-top:12px;font-size:1.02rem}
-.stamp{display:inline-block;margin-top:16px;font:600 .78rem/1 var(--mono);letter-spacing:.1em;color:var(--good);
-  border:1.5px solid currentColor;padding:7px 10px;transform:rotate(-2deg)}
+.verdict h2{font:400 clamp(1.6rem,3vw,2.1rem)/1.12 var(--serif-d);letter-spacing:-.01em}
+.verdict h2 em{color:var(--ad)}
+.verdict ul{list-style:none;padding:0;margin-top:16px;font-size:1rem;line-height:1.45}
+.verdict li{padding:7px 0;border-top:1px solid var(--rule)}
+.verdict li b{font-family:var(--mono);font-weight:600;font-size:.92rem}
+.stamp{display:inline-block;margin-top:14px;font:600 .74rem/1.3 var(--mono);letter-spacing:.08em;color:var(--good);
+  border:1.5px solid currentColor;padding:7px 10px;transform:rotate(-1.5deg)}
 
 /* stat strip */
 .strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1.5px solid var(--ink);border-bottom:1px solid var(--rule)}
 .strip div{padding:20px 18px 18px;border-right:1px solid var(--rule)}
 .strip div:last-child{border-right:0}
 .strip b{display:block;font:500 1.7rem/1.1 var(--mono);letter-spacing:-.02em}
-.strip span{font:500 .72rem/1.3 var(--mono);text-transform:uppercase;letter-spacing:.09em;color:var(--ink-soft)}
+.strip span{font:500 .72rem/1.35 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft)}
 
 /* sections */
 section{padding:88px 0 0}
 .sec-head{display:grid;grid-template-columns:90px 1fr;gap:20px;margin-bottom:26px}
 .num{font:300 3.4rem/1 var(--serif-d);color:var(--hi)}
+.bq{font:600 .74rem/1 var(--mono);letter-spacing:.12em;color:var(--hi);text-transform:uppercase;display:block;margin-bottom:10px}
 h2{font:420 clamp(1.8rem,3.6vw,2.6rem)/1.08 var(--serif-d);letter-spacing:-.015em}
 .sec-body{margin-left:110px}
 p+p{margin-top:1em}
+.answer{border-left:3px solid var(--ad);padding:2px 0 2px 18px;margin:22px 0}
+.answer b:first-child{font:600 .76rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ad);display:block;margin-bottom:6px}
 .chart{width:100%;height:380px;margin:30px 0 8px}
 .cap{font:400 .82rem/1.5 var(--mono);color:var(--ink-soft);border-top:1px solid var(--rule);padding-top:8px}
-.pull{font:400 italic clamp(1.5rem,3vw,2.1rem)/1.3 var(--serif-d);border-left:3px solid var(--hi);padding:4px 0 4px 22px;margin:34px 0;max-width:30ch}
-table{border-collapse:collapse;width:100%;margin:22px 0;font:400 .9rem/1.4 var(--mono)}
-th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--rule)}
+.pull{font:400 italic clamp(1.5rem,3vw,2.1rem)/1.3 var(--serif-d);border-left:3px solid var(--hi);padding:4px 0 4px 22px;margin:34px 0;max-width:32ch}
+table{border-collapse:collapse;width:100%;margin:22px 0;font:400 .9rem/1.45 var(--mono)}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
 th{font-weight:600;text-transform:uppercase;font-size:.72rem;letter-spacing:.08em;color:var(--ink-soft);border-bottom:1.5px solid var(--ink)}
-td.n{text-align:right} th.n{text-align:right}
-.methods{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:28px;border:1px solid var(--rule)}
+td.n,th.n{text-align:right}
+tr.hl td{background:var(--paper-2);font-weight:600}
+.bqs{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--rule);margin-top:26px}
+.bqs div{padding:22px;border-right:1px solid var(--rule)}
+.bqs div:last-child{border-right:0}
+.bqs b{font:600 .74rem/1 var(--mono);letter-spacing:.1em;color:var(--hi);display:block;margin-bottom:10px}
+.bqs h3{font:420 1.3rem/1.2 var(--serif-d);margin-bottom:8px}
+.bqs p{font-size:.95rem;line-height:1.45;color:var(--ink-soft)}
+.methods{display:grid;grid-template-columns:repeat(3,1fr);margin-top:28px;border:1px solid var(--rule)}
 .methods div{padding:22px;border-right:1px solid var(--rule)}
 .methods div:last-child{border-right:0}
 .methods h3{font:600 .74rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px}
 .methods b{font:400 2rem/1 var(--serif-d);color:var(--ad);display:block;margin-bottom:8px}
 .methods p{font-size:.95rem;line-height:1.5}
+.caveats{background:var(--paper-2);border:1px dashed var(--rule);padding:20px 22px;margin-top:22px;font-size:1rem}
+.caveats h3{font:600 .74rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
 ul.clean{padding-left:1.1em} ul.clean li{margin:.4em 0}
 .rec{background:var(--ink);color:var(--paper);padding:48px;margin-top:30px}
-.rec h3{font:400 2rem/1.15 var(--serif-d);margin-bottom:18px}
-.rec li{margin:.5em 0} .rec a{color:var(--paper)}
-footer{margin:100px 0 40px;padding-top:22px;border-top:1.5px solid var(--ink);display:flex;justify-content:space-between;
+.rec h3{font:400 2rem/1.15 var(--serif-d);margin-bottom:22px}
+.rec ol{padding-left:1.2em} .rec li{margin:.6em 0} .rec a{color:var(--paper)}
+.takeaway{margin-top:28px;padding-top:22px;border-top:1px solid rgba(255,255,255,.25);font:400 italic 1.35rem/1.4 var(--serif-d)}
+.takeaway span{display:block;font:600 .72rem/1 var(--mono);font-style:normal;letter-spacing:.12em;text-transform:uppercase;opacity:.7;margin-bottom:10px}
+.how{margin-top:40px;font-size:1rem;color:var(--ink-soft);max-width:680px}
+.how b{font:600 .74rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);display:block;margin-bottom:8px}
+footer{margin:80px 0 40px;padding-top:22px;border-top:1.5px solid var(--ink);display:flex;justify-content:space-between;
   flex-wrap:wrap;gap:16px;font:500 .78rem/1.5 var(--mono);letter-spacing:.05em;color:var(--ink-soft)}
 .tags span{display:inline-block;border:1px solid var(--rule);padding:3px 8px;margin:0 6px 6px 0}
 
@@ -100,10 +118,10 @@ footer{margin:100px 0 40px;padding-top:22px;border-top:1.5px solid var(--ink);di
   .strip{grid-template-columns:repeat(2,1fr)} .strip div:nth-child(2){border-right:0}
   .strip div:nth-child(-n+2){border-bottom:1px solid var(--rule)}
   .sec-head{grid-template-columns:1fr;gap:6px} .sec-body{margin-left:0}
-  .methods{grid-template-columns:1fr} .methods div{border-right:0;border-bottom:1px solid var(--rule)}
+  .methods,.bqs{grid-template-columns:1fr} .methods div,.bqs div{border-right:0;border-bottom:1px solid var(--rule)}
   .rec{padding:28px 22px} .chart{height:320px}
   nav.top .links a:not(:last-child){display:none}
-  table{font-size:.78rem} th,td{padding:8px 6px}
+  table{font-size:.76rem} th,td{padding:8px 6px}
 }
 </style>
 </head>
@@ -111,121 +129,153 @@ footer{margin:100px 0 40px;padding-top:22px;border-top:1.5px solid var(--ink);di
 <div class="wrap">
 <nav class="top">
   <a href="https://kubrabozan.github.io/">← Portfolio</a>
-  <div class="links"><a href="#method">Method</a><a href="#findings">Findings</a><a href="https://github.com/kubrabozan/ab-testing-marketing-campaign">Code ↗</a></div>
+  <div class="links"><a href="#decision">Decision</a><a href="#money">Business case</a><a href="#recommendation">Recommendation</a><a href="https://github.com/kubrabozan/ab-testing-marketing-campaign">Code ↗</a></div>
 </nav>
 
 <header class="hero">
   <div>
     <div class="kicker">Case study · Experimentation</div>
-    <h1>Did the ad <em>actually</em> work?</h1>
-    <p class="dek">An A/B test on 588,101 users. The question: does showing a product ad make people buy, compared with a public-service announcement shown in the same slot?</p>
+    <h1>Should we keep paying for <em>this ad?</em></h1>
+    <p class="dek">The marketing team has to decide whether to renew a campaign budget. An A/B test on 588,101 users answers three questions: does the ad work, is it worth the money, and where does it work?</p>
   </div>
   <aside class="verdict">
-    <div class="big" id="v-lift">+43<small>% lift</small></div>
-    <p>Conversion rose from <b id="v-c">1.79%</b> to <b id="v-t">2.55%</b>. Three different methods give the same answer.</p>
-    <span class="stamp">SIGNIFICANT · p &lt; 0.0001</span>
+    <h2>Keep funding it, but <em>test frequency</em> before spending more.</h2>
+    <ul>
+      <li><b id="v-inc">~4,343</b> extra purchases (<b id="v-lift">+43%</b>)</li>
+      <li>Pays off above <b id="v-be">~$16</b> profit per sale at a $5 CPM</li>
+      <li><b id="v-low">21%</b> of impressions show no measurable lift</li>
+    </ul>
+    <span class="stamp" id="v-stamp">CHANCE EXPLANATION: &lt; 1 IN A TRILLION</span>
   </aside>
 </header>
 
 <div class="strip">
-  <div><b id="s-users">588,101</b><span>users in the test</span></div>
-  <div><b id="s-split">96 / 4</b><span>ad / control split</span></div>
-  <div><b id="s-p">1.7e-13</b><span>p-value (z-test)</span></div>
-  <div><b id="s-extra">≈770</b><span>extra buys per 100k users</span></div>
+  <div><b id="s-inc">4,343</b><span>extra purchases caused by the ad</span></div>
+  <div><b id="s-be">$16</b><span>ad cost per extra purchase (@ $5 CPM)</span></div>
+  <div><b id="s-low">21%</b><span>of impressions with no measurable lift</span></div>
+  <div><b id="s-users">588,101</b><span>users in the experiment</span></div>
 </div>
 
 <main>
-<section class="reveal">
-  <div class="sec-head"><div class="num">01</div><h2>The question</h2></div>
-  <div class="sec-body col">
-    <p>A company ran a campaign. Most users saw a product <b style="color:var(--ad)">advertisement</b>. A small hold-out group (exactly 4%) saw a <b style="color:var(--psa)">public-service announcement</b> in the same slot. Everything else was the same, so any difference in purchases can be credited to the ad.</p>
-    <p><b>H₀:</b> both groups convert at the same rate. <b>H₁:</b> they don't (two-sided, because we'd also want to know if the ad <i>hurt</i>). α = 0.05.</p>
+<section class="reveal" id="decision">
+  <div class="sec-head"><div class="num">01</div><h2>The decision</h2></div>
+  <div class="sec-body">
+    <div class="col"><p>Before touching the data: <b>what decision will this change?</b> Here, it's whether marketing renews the campaign budget next quarter and how it spends that budget. Every chart below answers one of three questions behind that decision. Anything that didn't was cut.</p></div>
+    <div class="bqs">
+      <div><b>BQ1</b><h3>Does the ad cause more purchases?</h3><p>Is the campaign doing anything at all?</p></div>
+      <div><b>BQ2</b><h3>Is it worth the money?</h3><p>Renew or cut the budget.</p></div>
+      <div><b>BQ3</b><h3>Where does it work?</h3><p>How to spend the budget: frequency and timing.</p></div>
+    </div>
   </div>
 </section>
 
 <section class="reveal">
-  <div class="sec-head"><div class="num">02</div><h2>The headline result</h2></div>
+  <div class="sec-head"><div class="num">02</div><h2>The data</h2></div>
   <div class="sec-body">
-    <div class="col"><p>The ad group converted at <b id="t-t">2.55%</b>, against <b id="t-c">1.79%</b> for the control. The 95% confidence interval for the uplift is <b id="t-ci">0.60 – 0.94 pp</b>, and it doesn't come close to zero.</p></div>
+    <div class="col"><p>Most users (96%) were shown a product <b style="color:var(--ad)">advertisement</b>. A hold-out group (4%) saw a <b style="color:var(--psa)">public-service announcement</b> in the same slot. Because the PSA fills the same space, any difference in purchases can be credited to the ad itself, not just to having an ad there.</p></div>
+    <table>
+      <thead><tr><th>Column</th><th>Meaning</th><th>Used for</th></tr></thead>
+      <tbody>
+        <tr><td>test group</td><td>ad (test) or psa (control)</td><td>the experiment split</td></tr>
+        <tr><td>converted</td><td>did the user buy?</td><td>primary metric</td></tr>
+        <tr><td>total ads</td><td>ads the user saw</td><td>frequency analysis, cost model</td></tr>
+        <tr><td>most ads day</td><td>weekday with most ads seen</td><td>timing analysis</td></tr>
+        <tr><td>most ads hour</td><td>hour with most ads seen</td><td>not used: no decision depends on it</td></tr>
+      </tbody>
+    </table>
+    <div class="caveats col">
+      <h3>Read with care</h3>
+      <ul class="clean">
+        <li>The dataset's origin is undocumented and may be synthetic. Treat this as a method demonstration.</li>
+        <li>There's no revenue or cost data, so profitability is shown as a break-even point (section 05).</li>
+        <li>Ad counts and days are recorded <i>after</i> assignment, so section 06 is descriptive, not causal.</li>
+        <li>Quality checks passed: 0 missing values, 0 duplicate users, 0 users in both groups.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="sec-head"><div class="num">03</div><div><span class="bq">BQ1</span><h2>Does the ad cause more purchases?</h2></div></div>
+  <div class="sec-body">
     <div id="c-group" class="chart"></div>
-    <div class="cap">Conversion rate by group, with 95% confidence intervals. The control interval is wider because the group is 24× smaller.</div>
+    <div class="cap">Conversion rate by group, with 95% confidence intervals. The control interval is wider because that group is 24× smaller.</div>
+    <div class="answer col"><b>Answer: yes</b>Conversion rises from <b id="t-c">1.79%</b> to <b id="t-t">2.55%</b>. That's about <b id="t-inc">4,343</b> purchases that wouldn't have happened without the ad (95% CI <span id="t-inc-ci">3,360 – 5,326</span>). If the ad had no effect, a gap this large would happen by chance <span id="t-plain">less than 1 in a trillion</span> times.</div>
   </div>
 </section>
 
-<section class="reveal" id="method">
-  <div class="sec-head"><div class="num">03</div><h2>Three ways of asking the same question</h2></div>
+<section class="reveal">
+  <div class="sec-head"><div class="num">04</div><h2>How sure are we?</h2></div>
   <div class="sec-body">
-    <div class="col"><p>With only 420 conversions in the control group, I didn't want the conclusion to depend on a single method. So I tested it three ways.</p></div>
+    <div class="col"><p>People only act on a number they trust. With just 420 purchases in the control group, I didn't want the answer to depend on one method, so I checked it three ways.</p></div>
     <div class="methods">
-      <div><h3>Frequentist</h3><b id="m-z">z = 7.37</b><p>A two-proportion z-test. The chi-square test gives the same p-value, as it should for a 2×2 table (χ² = z²).</p></div>
-      <div><h3>Bootstrap</h3><b id="m-b">+31% – +58%</b><p>A 95% interval for the relative lift from 10,000 resamples, with no normal approximation needed.</p></div>
-      <div><h3>Bayesian</h3><b id="m-p">≈100%</b><p>The posterior probability that the ad beats the PSA, using a Beta-Binomial model with a flat prior.</p></div>
+      <div><h3>Frequentist</h3><b id="m-z">z = 7.37</b><p>A two-proportion z-test. The chi-square test gives the same p-value (χ² = z²).</p></div>
+      <div><h3>Bootstrap</h3><b id="m-b">+31% – +58%</b><p>A 95% interval for the lift from 10,000 resamples, with no normal approximation needed.</p></div>
+      <div><h3>Bayesian</h3><b id="m-p">&gt;99.99%</b><p>Probability that the ad beats the PSA (Beta-Binomial, flat prior).</p></div>
     </div>
     <div id="c-boot" class="chart"></div>
     <div class="cap">Bootstrap distribution of the relative lift. The red line is "no effect", and none of the 10,000 resamples reach it.</div>
+    <div class="col" style="margin-top:22px"><p><b>Was the test big enough?</b> The observed effect is <span id="pw-x">3.1</span>× the smallest effect this design could reliably detect. A 50/50 split would have needed fewer users, but it would have hidden the ad from half the audience. The 4% hold-out was the right trade-off.</p></div>
   </div>
 </section>
 
-<section class="reveal" id="findings">
-  <div class="sec-head"><div class="num">04</div><h2>The ad needs repetition</h2></div>
+<section class="reveal" id="money">
+  <div class="sec-head"><div class="num">05</div><div><span class="bq">BQ2</span><h2>Is it worth the money?</h2></div></div>
+  <div class="sec-body">
+    <div class="col"><p>The data has no prices, so instead of guessing them I asked: <b>at what price does the campaign pay off?</b> The ad group was shown <b id="b-imp">14.0M</b> ads, which produced <b id="b-per">0.31</b> extra purchases per 1,000 impressions. Since ads are bought per 1,000 impressions (CPM), that converts directly into a cost per extra purchase:</p></div>
+    <table class="col" id="be-table">
+      <thead><tr><th>CPM</th><th class="n">Campaign cost</th><th class="n">Cost per extra purchase</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <div class="answer col"><b>Answer: likely, and one number decides it</b>At a typical $5 CPM, each extra purchase costs about <b id="b-5">$16</b> in ads. If a sale earns more profit than that, the campaign pays for itself. That turns an open question into a single check with the finance team.</div>
+    <div class="col"><p><b>Measuring cost something too.</b> The hold-out group "lost" about <b id="b-hold">181</b> purchases by seeing the PSA, under 5% of what the campaign generated. That's a small price for knowing the campaign works at all.</p></div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="sec-head"><div class="num">06</div><div><span class="bq">BQ3</span><h2>Where does it work?</h2></div></div>
   <div class="sec-body">
     <div class="col">
-      <p>Splitting users by how many ads they saw shows something the headline hides. <b>For users who saw 1–10 ads, the ad did nothing.</b> The control group even converted slightly better. The gap only opens above about 20 ads.</p>
-      <p class="pull">The campaign works, but only once people have seen it many times.</p>
-      <p>A caveat: exposure is measured <i>after</i> assignment, and heavy platform users see more ads <i>and</i> buy more. So this pattern is descriptive, not causal. It's a strong lead for a follow-up experiment that randomises ad frequency.</p>
+      <p><b>Frequency is the biggest lever.</b> Users who saw 20 or fewer ads show <b>no lift</b> (<span id="f-low">−3%</span>, p = <span id="f-lowp">0.78</span>). Above 20 views, the lift is <b id="f-high">+56%</b>.</p>
+      <p class="pull">Two in three users saw too few ads to be moved, and they used up about a fifth of the budget.</p>
+      <p>This isn't proof that capping frequency would save <span id="f-imp">21%</span>: heavy platform users see more ads <i>and</i> may simply be keener buyers. But it is the most valuable thing to test next, because it's the biggest potential saving.</p>
     </div>
     <div id="c-exp" class="chart"></div>
-    <div class="cap">Conversion rate by total ads seen. Both groups rise with exposure; the gap between them is the ad's contribution.</div>
-  </div>
-</section>
+    <div class="cap">Conversion rate by total ads seen. The gap between the bars is the ad's contribution, and it only opens after about 20 views.</div>
 
-<section class="reveal">
-  <div class="sec-head"><div class="num">05</div><h2>When does it work? (Correcting for multiple tests)</h2></div>
-  <div class="sec-body">
-    <div class="col"><p>Testing all seven weekdays means seven chances of a false positive, which adds up to about a 30% risk at α = 0.05. After the <b>Holm correction</b>, five days stay significant. Thursday and Sunday don't, but with only about 3,000 control users per day, that means "not enough evidence", not "no effect".</p></div>
-    <div id="c-seg" class="chart"></div>
+    <div class="col" style="margin-top:44px"><p><b>Should budget move between weekdays?</b> Testing seven days means seven chances of a false positive, so I used the Holm correction. Five days stay significant. Thursday and Sunday don't, because there are only about 3,000 control users per day.</p></div>
+    <div id="c-seg" class="chart" style="height:340px"></div>
     <div class="cap">Relative lift by the weekday each user saw the most ads. Filled dots are significant after the Holm correction.</div>
+    <div class="answer col"><b>Answer: don't reallocate by day</b>"Most ads day" is when users <i>saw</i> ads, not when they <i>bought</i>. That's too weak a basis for moving money. Knowing what the data does <i>not</i> support is part of the answer.</div>
   </div>
 </section>
 
-<section class="reveal">
-  <div class="sec-head"><div class="num">06</div><h2>Was the test big enough?</h2></div>
-  <div class="sec-body col">
-    <p>With a 96/4 split, the small control group limits statistical power. Even so, the smallest uplift the test could reliably detect (80% power) was <b id="p-mde">0.25 pp</b>, about a third of what we observed. A 50/50 split would have needed only about 90k users. But it would have shown the ad to far fewer people, so keeping a small hold-out is a sensible business trade-off.</p>
-    <table>
-      <thead><tr><th>Check</th><th>Result</th></tr></thead>
-      <tbody>
-        <tr><td>Missing values / duplicate users</td><td>0 / 0</td></tr>
-        <tr><td>Users in both groups</td><td>0</td></tr>
-        <tr><td>Control share</td><td>4.00% (by design)</td></tr>
-        <tr><td>Minimum detectable effect</td><td id="p-mde2">0.25 pp</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<section class="reveal">
+<section class="reveal" id="recommendation">
   <div class="sec-head"><div class="num">07</div><h2>Recommendation</h2></div>
   <div class="sec-body">
     <div class="rec">
-      <h3>Roll out the campaign, then test ad frequency next.</h3>
-      <ul class="clean">
-        <li>About <b id="r-extra">770</b> extra purchases per 100,000 users, or about <b id="r-total">4,300</b> purchases caused by this campaign.</li>
-        <li>The effect appears only at higher frequency, so a frequency experiment could show where extra impressions stop adding value.</li>
-        <li>Combine this with cost-per-impression and margin data to confirm the campaign is <i>profitable</i>, not just <i>effective</i>.</li>
-      </ul>
-      <p style="margin-top:22px;font:500 .85rem/1.5 var(--mono)">
+      <h3>Keep funding the campaign, and test frequency before the next budget cycle.</h3>
+      <ol>
+        <li><b>Renew the budget.</b> The ad causes about <span id="r-inc">4,343</span> extra purchases, and three methods agree.</li>
+        <li><b>Confirm profit per sale with finance.</b> Above about <span id="r-be">$16</span> (at a $5 CPM), it's profitable.</li>
+        <li><b>Run a frequency-cap experiment</b> (e.g. 10 / 20 / 40 ads). About <span id="r-low">21%</span> of impressions show no measurable lift today.</li>
+        <li><b>Keep a small hold-out</b> in every campaign. It's the only reason any of this can be measured.</li>
+        <li><b>Don't reallocate by weekday.</b> The evidence doesn't support it.</li>
+      </ol>
+      <p class="takeaway"><span>Takeaway</span>The ad works and likely pays for itself, but about a fifth of the spend may be wasted on users who don't see it often enough. The next step is to test frequency, not to spend more.</p>
+      <p style="margin-top:24px;font:500 .85rem/1.5 var(--mono)">
         <a href="https://github.com/kubrabozan/ab-testing-marketing-campaign/blob/main/notebooks/ab_test_analysis.ipynb">Full notebook ↗</a> &nbsp;·&nbsp;
         <a href="https://github.com/kubrabozan/ab-testing-marketing-campaign/blob/main/src/ab_stats.py">Tested stats module ↗</a>
       </p>
     </div>
+    <p class="how"><b>How I worked</b>I used an AI assistant to speed up the coding and the first drafts. I set the business framing, checked every claim against the notebook output, and made the judgement calls in the recommendations.</p>
   </div>
 </section>
 </main>
 
 <footer>
   <div>Kubra Bozan · Data Analysis Portfolio</div>
-  <div class="tags"><span>Python</span><span>SciPy</span><span>statsmodels</span><span>Hypothesis testing</span><span>Bayesian</span><span>Bootstrap</span></div>
+  <div class="tags"><span>Python</span><span>Experiment design</span><span>Hypothesis testing</span><span>Bayesian</span><span>Business case</span></div>
   <div>Data: <a href="https://www.kaggle.com/datasets/faviovaz/marketing-ab-testing">Marketing A/B Testing (Kaggle)</a></div>
 </footer>
 </div>
@@ -233,11 +283,12 @@ footer{margin:100px 0 40px;padding-top:22px;border-top:1.5px solid var(--ink);di
 <script>
 const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 const pct = (x, d = 2) => (x * 100).toFixed(d) + "%";
+const sgn = (x, d = 0) => (x >= 0 ? "+" : "−") + Math.abs(x * 100).toFixed(d) + "%";
 const fmt = n => Math.round(n).toLocaleString("en-US");
-const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+const money = n => n >= 1000 ? "$" + Math.round(n / 1000) + "k" : "$" + Math.round(n);
+const set = (id, v) => document.querySelectorAll(`#${id}`).forEach(el => el.textContent = v);
 
-// reveal on scroll
-const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12 });
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .08 });
 document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 
 function layout(extra = {}) {
@@ -277,13 +328,17 @@ function draw(R) {
     annotations: [{ x: 0, y: 1, yref: "paper", text: "no effect", showarrow: false, xanchor: "left", xshift: 6, font: { color: HI } }],
   }), cfg);
 
-  const E = R.by_exposure;
+  const E = R.by_exposure, cutIdx = E.buckets.indexOf("11–20");
   Plotly.react("c-exp", [
     { type: "bar", name: "Control (PSA)", x: E.buckets, y: E.psa, marker: { color: PSA }, hovertemplate: "PSA · %{x} ads: %{y:.2f}%<extra></extra>" },
     { type: "bar", name: "Test (Ad)", x: E.buckets, y: E.ad, marker: { color: AD }, hovertemplate: "Ad · %{x} ads: %{y:.2f}%<extra></extra>" },
   ], layout({ barmode: "group", bargap: .25, showlegend: true, legend: { x: 0, y: 1, bgcolor: "rgba(0,0,0,0)" },
     xaxis: { title: "Total ads seen", gridcolor: "rgba(0,0,0,0)", linecolor: INK, fixedrange: true },
-    yaxis: { title: "Conversion rate (%)", gridcolor: css("--rule"), fixedrange: true } }), cfg);
+    yaxis: { title: "Conversion rate (%)", gridcolor: css("--rule"), fixedrange: true },
+    shapes: [{ type: "line", x0: cutIdx + .5, x1: cutIdx + .5, yref: "paper", y0: 0, y1: 1, line: { color: HI, width: 1.5, dash: "dash" } }],
+    annotations: [{ x: cutIdx + .5, y: .62, yref: "paper", xanchor: "right", xshift: -8, showarrow: false, align: "right",
+      text: `≤20 ads<br>${Math.round(R.low_user_share * 100)}% of users<br>${Math.round(R.low_imp_share * 100)}% of impressions<br><b>no lift</b>`, font: { color: HI, size: 11 } }],
+  }), cfg);
 
   const S = R.segments;
   Plotly.react("c-seg", [{
@@ -299,16 +354,23 @@ function draw(R) {
 }
 
 fetch("data/results.json").then(r => r.json()).then(R => {
-  set("v-lift", ""); document.getElementById("v-lift").innerHTML = `+${Math.round(R.rel_lift * 100)}<small>% lift</small>`;
-  set("v-c", pct(R.rate_control)); set("v-t", pct(R.rate_test));
+  const be5 = R.breakeven.find(b => b.cpm === 5).per_purchase;
+  const inc = fmt(R.incremental_total), low = Math.round(R.low_imp_share * 100) + "%";
+  ["v-inc", "s-inc", "t-inc", "r-inc"].forEach(id => set(id, (id === "v-inc" ? "~" : "") + inc));
+  ["v-be", "s-be", "b-5", "r-be"].forEach(id => set(id, (id === "v-be" ? "~" : "") + "$" + Math.round(be5)));
+  ["v-low", "s-low", "f-imp", "r-low"].forEach(id => set(id, low));
+  set("v-lift", sgn(R.rel_lift)); set("s-users", fmt(R.n_users));
+  set("v-stamp", `CHANCE EXPLANATION: ${R.p_plain.toUpperCase()}`);
   set("t-c", pct(R.rate_control)); set("t-t", pct(R.rate_test));
-  set("t-ci", `${(R.ci_low * 100).toFixed(2)} – ${(R.ci_high * 100).toFixed(2)} pp`);
-  set("s-users", fmt(R.n_users)); set("s-p", R.p_value.toExponential(1)); set("s-extra", "≈" + fmt(R.extra_per_100k));
+  set("t-inc-ci", `${fmt(R.incremental_ci[0])} – ${fmt(R.incremental_ci[1])}`); set("t-plain", R.p_plain);
   set("m-z", `z = ${R.z.toFixed(2)}`);
   set("m-b", `+${Math.round(R.boot_ci[0] * 100)}% – +${Math.round(R.boot_ci[1] * 100)}%`);
-  set("m-p", R.bayes_prob >= 0.9999 ? ">99.99%" : pct(R.bayes_prob));
-  set("p-mde", (R.mde_abs * 100).toFixed(2) + " pp"); set("p-mde2", (R.mde_abs * 100).toFixed(2) + " pp");
-  set("r-extra", fmt(R.extra_per_100k)); set("r-total", fmt(R.abs_diff * R.n_test));
+  set("m-p", R.bayes_prob > 0.9999 ? ">99.99%" : pct(R.bayes_prob));
+  set("pw-x", (R.abs_diff / R.mde_abs).toFixed(1));
+  set("b-imp", (R.impressions / 1e6).toFixed(1) + "M"); set("b-per", R.inc_per_1000.toFixed(2)); set("b-hold", fmt(R.holdout_cost));
+  set("f-low", sgn(R.low_lift)); set("f-lowp", R.low_p.toFixed(2)); set("f-high", sgn(R.high_lift));
+  document.querySelector("#be-table tbody").innerHTML = R.breakeven.map(b =>
+    `<tr${b.cpm === 5 ? ' class="hl"' : ""}><td>$${b.cpm}${b.cpm === 5 ? " (typical)" : ""}</td><td class="n">${money(b.cost)}</td><td class="n">~$${Math.round(b.per_purchase)}</td></tr>`).join("");
   draw(R);
   matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => draw(R));
 }).catch(err => console.error("Could not load results.json", err));
