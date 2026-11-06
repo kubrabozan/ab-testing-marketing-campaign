@@ -136,23 +136,23 @@ footer{margin:80px 0 40px;padding-top:22px;border-top:1.5px solid var(--ink);dis
   <div>
     <div class="kicker">Case study · Experimentation</div>
     <h1>Should we keep paying for <em>this ad?</em></h1>
-    <p class="dek">The marketing team has to decide whether to renew a campaign budget. An A/B test on 588,101 users answers three questions: does the ad work, is it worth the money and where does it work?</p>
+    <p class="dek">The marketing team has to decide whether to renew a campaign budget. An A/B test on 588,101 users answers 3 questions: does the ad work, is it worth the money and where does it work?</p>
   </div>
   <aside class="verdict">
-    <h2>Keep funding it, but <em>test frequency</em> before spending more.</h2>
+    <h2>Keep funding it, but <em>test frequency</em> before spending more</h2>
     <ul>
       <li><b id="v-inc">~4,343</b> extra purchases (<b id="v-lift">+43%</b>)</li>
       <li>Pays off above <b id="v-be">~$16</b> profit per sale at a $5 CPM</li>
-      <li><b id="v-low">21%</b> of impressions show no measurable lift</li>
+      <li><b id="v-low">21%</b> of ads shown had no measurable effect</li>
     </ul>
-    <span class="stamp" id="v-stamp">CHANCE EXPLANATION: &lt; 1 IN A TRILLION</span>
+    <span class="stamp">STATISTICALLY SIGNIFICANT · p &lt; 0.0001</span>
   </aside>
 </header>
 
 <div class="strip">
   <div><b id="s-inc">4,343</b><span>extra purchases caused by the ad</span></div>
   <div><b id="s-be">$16</b><span>ad cost per extra purchase (@ $5 CPM)</span></div>
-  <div><b id="s-low">21%</b><span>of impressions with no measurable lift</span></div>
+  <div><b id="s-low">21%</b><span>of ads shown with no measurable effect</span></div>
   <div><b id="s-users">588,101</b><span>users in the experiment</span></div>
 </div>
 
@@ -160,7 +160,7 @@ footer{margin:80px 0 40px;padding-top:22px;border-top:1.5px solid var(--ink);dis
 <section class="reveal" id="decision">
   <div class="sec-head"><div class="num">01</div><h2>The decision</h2></div>
   <div class="sec-body">
-    <div class="col"><p>Before touching the data: <b>what decision will this change?</b> Here, it's whether marketing renews the campaign budget next quarter and how it spends that budget. Every chart below answers one of three questions behind that decision. Anything that didn't was cut.</p></div>
+    <div class="col"><p>Before touching the data: <b>what decision will this change?</b> Here, it's whether marketing renews the campaign budget next quarter and how it spends that budget. Every chart below answers 1 of 3 questions behind that decision. Anything that didn't was cut.</p></div>
     <div class="bqs">
       <div><b>BQ1</b><h3>Does the ad cause more purchases?</h3><p>Is the campaign doing anything at all?</p></div>
       <div><b>BQ2</b><h3>Is it worth the money?</h3><p>Renew or cut the budget.</p></div>
@@ -176,7 +176,7 @@ footer{margin:80px 0 40px;padding-top:22px;border-top:1.5px solid var(--ink);dis
     <table>
       <thead><tr><th>Column</th><th>Meaning</th><th>Used for</th></tr></thead>
       <tbody>
-        <tr><td>test group</td><td>ad (test) or psa (control)</td><td>the experiment split</td></tr>
+        <tr><td>test group</td><td>ad (variant) or psa (control)</td><td>the experiment split</td></tr>
         <tr><td>converted</td><td>did the user buy?</td><td>primary metric</td></tr>
         <tr><td>total ads</td><td>ads the user saw</td><td>frequency analysis, cost model</td></tr>
         <tr><td>most ads day</td><td>weekday with most ads seen</td><td>timing analysis</td></tr>
@@ -200,14 +200,14 @@ footer{margin:80px 0 40px;padding-top:22px;border-top:1.5px solid var(--ink);dis
   <div class="sec-body">
     <div id="c-group" class="chart"></div>
     <div class="cap">Conversion rate by group, with 95% confidence intervals. The control interval is wider because that group is 24× smaller.</div>
-    <div class="answer col"><b>Answer: yes</b>Conversion rises from <b id="t-c">1.79%</b> to <b id="t-t">2.55%</b>. That's about <b id="t-inc">4,343</b> purchases that wouldn't have happened without the ad (95% CI <span id="t-inc-ci">3,360 to 5,326</span>). If the ad had no effect, a gap this large would happen by chance <span id="t-plain">less than 1 in a trillion</span> times.</div>
+    <div class="answer col"><b>Answer: yes</b>Conversion rises from <b id="t-c">1.79%</b> to <b id="t-t">2.55%</b>. That's about <b id="t-inc">4,343</b> purchases that wouldn't have happened without the ad (95% CI <span id="t-inc-ci">3,360 to 5,326</span>). If the ad did nothing, random luck in who landed in which group would produce a gap this large <span id="t-plain">less than 1 in a trillion</span> times. In other words, this is not a fluke.</div>
   </div>
 </section>
 
 <section class="reveal">
   <div class="sec-head"><div class="num">04</div><h2>How sure are we?</h2></div>
   <div class="sec-body">
-    <div class="col"><p>People only act on a number they trust. With just 420 purchases in the control group, I didn't want the answer to depend on one method, so I checked it three ways.</p></div>
+    <div class="col"><p>People only act on a number they trust. With just 420 purchases in the control group, I didn't want the answer to depend on 1 method, so I checked it 3 ways.</p></div>
     <div class="methods">
       <div><h3>Frequentist</h3><b id="m-z">z = 7.37</b><p>A two-proportion z-test. The chi-square test gives the same p-value (χ² = z²).</p></div>
       <div><h3>Bootstrap</h3><b id="m-b">+31% to +58%</b><p>A 95% interval for the lift from 10,000 resamples, with no normal approximation needed.</p></div>
@@ -215,19 +215,19 @@ footer{margin:80px 0 40px;padding-top:22px;border-top:1.5px solid var(--ink);dis
     </div>
     <div id="c-boot" class="chart"></div>
     <div class="cap">Bootstrap distribution of the relative lift. The red line is "no effect" and none of the 10,000 resamples reach it.</div>
-    <div class="col" style="margin-top:22px"><p><b>Was the test big enough?</b> The observed effect is <span id="pw-x">3.1</span>× the smallest effect this design could reliably detect. A 50/50 split would have needed fewer users, but it would have hidden the ad from half the audience. The 4% hold-out was the right trade-off.</p></div>
+    <div class="col" style="margin-top:22px"><p><b>Was the test big enough?</b> The observed effect is <span id="pw-x">3.1</span>× the smallest effect this design could reliably detect. A 50/50 split would have needed fewer users, but it would have hidden the ad from 50% of the audience. The 4% hold-out was the right trade-off.</p></div>
   </div>
 </section>
 
 <section class="reveal" id="money">
   <div class="sec-head"><div class="num">05</div><div><span class="bq">BQ2</span><h2>Is it worth the money?</h2></div></div>
   <div class="sec-body">
-    <div class="col"><p>The data has no prices, so instead of guessing them I asked: <b>at what price does the campaign pay off?</b> The ad group was shown <b id="b-imp">14.0M</b> ads, which produced <b id="b-per">0.31</b> extra purchases per 1,000 impressions. Since ads are bought per 1,000 impressions (CPM), that converts directly into a cost per extra purchase:</p></div>
+    <div class="col"><p>The data has no prices, so instead of guessing them I asked: <b>at what price does the campaign pay off?</b> There is no ad log either, but each user row says how many ads that user saw. Adding those up, the variant group was shown <b id="b-imp">14.0M</b> ads, which produced <b id="b-per">0.31</b> extra purchases per 1,000 ads shown. Ads are priced per 1,000 ads shown (this price is called CPM), so that converts directly into a cost per extra purchase:</p></div>
     <table class="col" id="be-table">
       <thead><tr><th>CPM</th><th class="n">Campaign cost</th><th class="n">Cost per extra purchase</th></tr></thead>
       <tbody></tbody>
     </table>
-    <div class="answer col"><b>Answer: likely and one number decides it</b>At a typical $5 CPM, each extra purchase costs about <b id="b-5">$16</b> in ads. If a sale earns more profit than that, the campaign pays for itself. That turns an open question into a single check with the finance team.</div>
+    <div class="answer col"><b>Answer: likely and 1 number decides it</b>At a typical $5 CPM, each extra purchase costs about <b id="b-5">$16</b> in ads. If a sale earns more profit than that, the campaign pays for itself. That turns an open question into a single check with the finance team.</div>
     <div class="col"><p><b>Measuring cost something too.</b> The hold-out group "lost" about <b id="b-hold">181</b> purchases by seeing the PSA, under 5% of what the campaign generated. That's a small price for knowing the campaign works at all.</p></div>
   </div>
 </section>
@@ -237,13 +237,13 @@ footer{margin:80px 0 40px;padding-top:22px;border-top:1.5px solid var(--ink);dis
   <div class="sec-body">
     <div class="col">
       <p><b>Frequency is the biggest lever.</b> Users who saw 20 or fewer ads show <b>no lift</b> (<span id="f-low">−3%</span>, p = <span id="f-lowp">0.78</span>). Above 20 views, the lift is <b id="f-high">+56%</b>.</p>
-      <p class="pull">Two in three users saw too few ads to be moved and they used up about a fifth of the budget.</p>
+      <p class="pull">2 in 3 users saw too few ads to be moved and they used up about 21% of the budget.</p>
       <p>This isn't proof that capping frequency would save <span id="f-imp">21%</span>: heavy platform users see more ads <i>and</i> may simply be keener buyers. But it is the most valuable thing to test next, because it's the biggest potential saving.</p>
     </div>
     <div id="c-exp" class="chart"></div>
     <div class="cap">Conversion rate by total ads seen. The gap between the bars is the ad's contribution and it only opens after about 20 views.</div>
 
-    <div class="col" style="margin-top:44px"><p><b>Should budget move between weekdays?</b> Testing seven days means seven chances of a false positive, so I used the Holm correction. Five days stay significant. Thursday and Sunday don't, because there are only about 3,000 control users per day.</p></div>
+    <div class="col" style="margin-top:44px"><p><b>Should budget move between weekdays?</b> Testing 7 days means 7 chances of a false positive, so I used the Holm correction. 5 days stay significant. Thursday and Sunday don't, because there are only about 3,000 control users per day.</p></div>
     <div id="c-seg" class="chart" style="height:340px"></div>
     <div class="cap">Relative lift by the weekday each user saw the most ads. Filled dots are significant after the Holm correction.</div>
     <div class="answer col"><b>Answer: don't reallocate by day</b>"Most ads day" is when users <i>saw</i> ads, not when they <i>bought</i>. That's too weak a basis for moving money. Knowing what the data does <i>not</i> support is part of the answer.</div>
@@ -254,15 +254,15 @@ footer{margin:80px 0 40px;padding-top:22px;border-top:1.5px solid var(--ink);dis
   <div class="sec-head"><div class="num">07</div><h2>Recommendation</h2></div>
   <div class="sec-body">
     <div class="rec">
-      <h3>Keep funding the campaign and test frequency before the next budget cycle.</h3>
+      <h3>Keep funding the campaign and test frequency before the next budget cycle</h3>
       <ol>
-        <li><b>Renew the budget.</b> The ad causes about <span id="r-inc">4,343</span> extra purchases and three methods agree.</li>
+        <li><b>Renew the budget.</b> The ad causes about <span id="r-inc">4,343</span> extra purchases and 3 methods agree.</li>
         <li><b>Confirm profit per sale with finance.</b> Above about <span id="r-be">$16</span> (at a $5 CPM), it's profitable.</li>
-        <li><b>Run a frequency-cap experiment</b> (e.g. 10 / 20 / 40 ads). About <span id="r-low">21%</span> of impressions show no measurable lift today.</li>
+        <li><b>Run a frequency-cap experiment</b> (e.g. 10 / 20 / 40 ads). About <span id="r-low">21%</span> of ads shown had no measurable effect today.</li>
         <li><b>Keep a small hold-out</b> in every campaign. It's the only reason any of this can be measured.</li>
         <li><b>Don't reallocate by weekday.</b> The evidence doesn't support it.</li>
       </ol>
-      <p class="takeaway"><span>Takeaway</span>The ad works and likely pays for itself, but about a fifth of the spend may be wasted on users who don't see it often enough. The next step is to test frequency, not to spend more.</p>
+      <p class="takeaway"><span>Takeaway</span>The ad works and likely pays for itself, but about 21% of the spend may be wasted on users who don't see it often enough. The next step is to test frequency, not to spend more.</p>
       <p style="margin-top:24px;font:500 .85rem/1.5 var(--mono)">
         <a href="https://github.com/kubrabozan/ab-testing-marketing-campaign/blob/main/notebooks/ab_test_analysis.ipynb">Full notebook ↗</a> &nbsp;·&nbsp;
         <a href="https://github.com/kubrabozan/ab-testing-marketing-campaign/blob/main/src/ab_stats.py">Tested stats module ↗</a>
@@ -308,7 +308,7 @@ function draw(R) {
   const se = (p, n) => 1.96 * Math.sqrt(p * (1 - p) / n) * 100;
 
   Plotly.react("c-group", [{
-    type: "bar", x: ["Control (PSA)", "Test (Ad)"], y: [R.rate_control * 100, R.rate_test * 100],
+    type: "bar", x: ["Control (PSA)", "Variant (Ad)"], y: [R.rate_control * 100, R.rate_test * 100],
     marker: { color: [PSA, AD] }, width: .5,
     error_y: { type: "data", array: [se(R.rate_control, R.n_control), se(R.rate_test, R.n_test)], color: INK, thickness: 1.5, width: 8 },
     text: [pct(R.rate_control), pct(R.rate_test)], textposition: "inside", insidetextanchor: "middle",
@@ -331,13 +331,13 @@ function draw(R) {
   const E = R.by_exposure, cutIdx = E.buckets.indexOf("11–20");
   Plotly.react("c-exp", [
     { type: "bar", name: "Control (PSA)", x: E.buckets, y: E.psa, marker: { color: PSA }, hovertemplate: "PSA · %{x} ads: %{y:.2f}%<extra></extra>" },
-    { type: "bar", name: "Test (Ad)", x: E.buckets, y: E.ad, marker: { color: AD }, hovertemplate: "Ad · %{x} ads: %{y:.2f}%<extra></extra>" },
+    { type: "bar", name: "Variant (Ad)", x: E.buckets, y: E.ad, marker: { color: AD }, hovertemplate: "Ad · %{x} ads: %{y:.2f}%<extra></extra>" },
   ], layout({ barmode: "group", bargap: .25, showlegend: true, legend: { x: 0, y: 1, bgcolor: "rgba(0,0,0,0)" },
     xaxis: { title: "Total ads seen", gridcolor: "rgba(0,0,0,0)", linecolor: INK, fixedrange: true },
     yaxis: { title: "Conversion rate (%)", gridcolor: css("--rule"), fixedrange: true },
     shapes: [{ type: "line", x0: cutIdx + .5, x1: cutIdx + .5, yref: "paper", y0: 0, y1: 1, line: { color: HI, width: 1.5, dash: "dash" } }],
     annotations: [{ x: cutIdx + .5, y: .62, yref: "paper", xanchor: "right", xshift: -8, showarrow: false, align: "right",
-      text: `≤20 ads<br>${Math.round(R.low_user_share * 100)}% of users<br>${Math.round(R.low_imp_share * 100)}% of impressions<br><b>no lift</b>`, font: { color: HI, size: 11 } }],
+      text: `≤20 ads<br>${Math.round(R.low_user_share * 100)}% of users<br>${Math.round(R.low_imp_share * 100)}% of ads shown<br><b>no lift</b>`, font: { color: HI, size: 11 } }],
   }), cfg);
 
   const S = R.segments;
@@ -360,7 +360,6 @@ fetch("data/results.json").then(r => r.json()).then(R => {
   ["v-be", "s-be", "b-5", "r-be"].forEach(id => set(id, (id === "v-be" ? "~" : "") + "$" + Math.round(be5)));
   ["v-low", "s-low", "f-imp", "r-low"].forEach(id => set(id, low));
   set("v-lift", sgn(R.rel_lift)); set("s-users", fmt(R.n_users));
-  set("v-stamp", `CHANCE EXPLANATION: ${R.p_plain.toUpperCase()}`);
   set("t-c", pct(R.rate_control)); set("t-t", pct(R.rate_test));
   set("t-inc-ci", `${fmt(R.incremental_ci[0])} to ${fmt(R.incremental_ci[1])}`); set("t-plain", R.p_plain);
   set("m-z", `z = ${R.z.toFixed(2)}`);

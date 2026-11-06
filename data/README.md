@@ -6,7 +6,7 @@
 | column | meaning |
 |---|---|
 | `user id` | unique user |
-| `test group` | `ad` (saw the advertisement, test) or `psa` (saw a public-service announcement, control) |
+| `test group` | `ad` (saw the advertisement, variant) or `psa` (saw a public-service announcement, control) |
 | `converted` | `True` if the user bought the product |
 | `total ads` | number of ads the user saw |
 | `most ads day` | weekday on which the user saw the most ads |
