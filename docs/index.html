@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Should We Keep the Ad? — A/B Test Case Study</title>
-<meta name="description" content="A decision-first A/B test case study: does an ad campaign cause purchases, is it worth the money, and where does it work?">
+<title>Should We Keep the Ad? | A/B Test Case Study</title>
+<meta name="description" content="A decision-first A/B test case study: does an ad campaign cause purchases, is it worth the money and where does it work?">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -136,7 +136,7 @@ footer{margin:80px 0 40px;padding-top:22px;border-top:1.5px solid var(--ink);dis
   <div>
     <div class="kicker">Case study · Experimentation</div>
     <h1>Should we keep paying for <em>this ad?</em></h1>
-    <p class="dek">The marketing team has to decide whether to renew a campaign budget. An A/B test on 588,101 users answers three questions: does the ad work, is it worth the money, and where does it work?</p>
+    <p class="dek">The marketing team has to decide whether to renew a campaign budget. An A/B test on 588,101 users answers three questions: does the ad work, is it worth the money and where does it work?</p>
   </div>
   <aside class="verdict">
     <h2>Keep funding it, but <em>test frequency</em> before spending more.</h2>
@@ -200,7 +200,7 @@ footer{margin:80px 0 40px;padding-top:22px;border-top:1.5px solid var(--ink);dis
   <div class="sec-body">
     <div id="c-group" class="chart"></div>
     <div class="cap">Conversion rate by group, with 95% confidence intervals. The control interval is wider because that group is 24× smaller.</div>
-    <div class="answer col"><b>Answer: yes</b>Conversion rises from <b id="t-c">1.79%</b> to <b id="t-t">2.55%</b>. That's about <b id="t-inc">4,343</b> purchases that wouldn't have happened without the ad (95% CI <span id="t-inc-ci">3,360 – 5,326</span>). If the ad had no effect, a gap this large would happen by chance <span id="t-plain">less than 1 in a trillion</span> times.</div>
+    <div class="answer col"><b>Answer: yes</b>Conversion rises from <b id="t-c">1.79%</b> to <b id="t-t">2.55%</b>. That's about <b id="t-inc">4,343</b> purchases that wouldn't have happened without the ad (95% CI <span id="t-inc-ci">3,360 to 5,326</span>). If the ad had no effect, a gap this large would happen by chance <span id="t-plain">less than 1 in a trillion</span> times.</div>
   </div>
 </section>
 
@@ -210,11 +210,11 @@ footer{margin:80px 0 40px;padding-top:22px;border-top:1.5px solid var(--ink);dis
     <div class="col"><p>People only act on a number they trust. With just 420 purchases in the control group, I didn't want the answer to depend on one method, so I checked it three ways.</p></div>
     <div class="methods">
       <div><h3>Frequentist</h3><b id="m-z">z = 7.37</b><p>A two-proportion z-test. The chi-square test gives the same p-value (χ² = z²).</p></div>
-      <div><h3>Bootstrap</h3><b id="m-b">+31% – +58%</b><p>A 95% interval for the lift from 10,000 resamples, with no normal approximation needed.</p></div>
+      <div><h3>Bootstrap</h3><b id="m-b">+31% to +58%</b><p>A 95% interval for the lift from 10,000 resamples, with no normal approximation needed.</p></div>
       <div><h3>Bayesian</h3><b id="m-p">&gt;99.99%</b><p>Probability that the ad beats the PSA (Beta-Binomial, flat prior).</p></div>
     </div>
     <div id="c-boot" class="chart"></div>
-    <div class="cap">Bootstrap distribution of the relative lift. The red line is "no effect", and none of the 10,000 resamples reach it.</div>
+    <div class="cap">Bootstrap distribution of the relative lift. The red line is "no effect" and none of the 10,000 resamples reach it.</div>
     <div class="col" style="margin-top:22px"><p><b>Was the test big enough?</b> The observed effect is <span id="pw-x">3.1</span>× the smallest effect this design could reliably detect. A 50/50 split would have needed fewer users, but it would have hidden the ad from half the audience. The 4% hold-out was the right trade-off.</p></div>
   </div>
 </section>
@@ -227,7 +227,7 @@ footer{margin:80px 0 40px;padding-top:22px;border-top:1.5px solid var(--ink);dis
       <thead><tr><th>CPM</th><th class="n">Campaign cost</th><th class="n">Cost per extra purchase</th></tr></thead>
       <tbody></tbody>
     </table>
-    <div class="answer col"><b>Answer: likely, and one number decides it</b>At a typical $5 CPM, each extra purchase costs about <b id="b-5">$16</b> in ads. If a sale earns more profit than that, the campaign pays for itself. That turns an open question into a single check with the finance team.</div>
+    <div class="answer col"><b>Answer: likely and one number decides it</b>At a typical $5 CPM, each extra purchase costs about <b id="b-5">$16</b> in ads. If a sale earns more profit than that, the campaign pays for itself. That turns an open question into a single check with the finance team.</div>
     <div class="col"><p><b>Measuring cost something too.</b> The hold-out group "lost" about <b id="b-hold">181</b> purchases by seeing the PSA, under 5% of what the campaign generated. That's a small price for knowing the campaign works at all.</p></div>
   </div>
 </section>
@@ -237,11 +237,11 @@ footer{margin:80px 0 40px;padding-top:22px;border-top:1.5px solid var(--ink);dis
   <div class="sec-body">
     <div class="col">
       <p><b>Frequency is the biggest lever.</b> Users who saw 20 or fewer ads show <b>no lift</b> (<span id="f-low">−3%</span>, p = <span id="f-lowp">0.78</span>). Above 20 views, the lift is <b id="f-high">+56%</b>.</p>
-      <p class="pull">Two in three users saw too few ads to be moved, and they used up about a fifth of the budget.</p>
+      <p class="pull">Two in three users saw too few ads to be moved and they used up about a fifth of the budget.</p>
       <p>This isn't proof that capping frequency would save <span id="f-imp">21%</span>: heavy platform users see more ads <i>and</i> may simply be keener buyers. But it is the most valuable thing to test next, because it's the biggest potential saving.</p>
     </div>
     <div id="c-exp" class="chart"></div>
-    <div class="cap">Conversion rate by total ads seen. The gap between the bars is the ad's contribution, and it only opens after about 20 views.</div>
+    <div class="cap">Conversion rate by total ads seen. The gap between the bars is the ad's contribution and it only opens after about 20 views.</div>
 
     <div class="col" style="margin-top:44px"><p><b>Should budget move between weekdays?</b> Testing seven days means seven chances of a false positive, so I used the Holm correction. Five days stay significant. Thursday and Sunday don't, because there are only about 3,000 control users per day.</p></div>
     <div id="c-seg" class="chart" style="height:340px"></div>
@@ -254,9 +254,9 @@ footer{margin:80px 0 40px;padding-top:22px;border-top:1.5px solid var(--ink);dis
   <div class="sec-head"><div class="num">07</div><h2>Recommendation</h2></div>
   <div class="sec-body">
     <div class="rec">
-      <h3>Keep funding the campaign, and test frequency before the next budget cycle.</h3>
+      <h3>Keep funding the campaign and test frequency before the next budget cycle.</h3>
       <ol>
-        <li><b>Renew the budget.</b> The ad causes about <span id="r-inc">4,343</span> extra purchases, and three methods agree.</li>
+        <li><b>Renew the budget.</b> The ad causes about <span id="r-inc">4,343</span> extra purchases and three methods agree.</li>
         <li><b>Confirm profit per sale with finance.</b> Above about <span id="r-be">$16</span> (at a $5 CPM), it's profitable.</li>
         <li><b>Run a frequency-cap experiment</b> (e.g. 10 / 20 / 40 ads). About <span id="r-low">21%</span> of impressions show no measurable lift today.</li>
         <li><b>Keep a small hold-out</b> in every campaign. It's the only reason any of this can be measured.</li>
@@ -268,7 +268,7 @@ footer{margin:80px 0 40px;padding-top:22px;border-top:1.5px solid var(--ink);dis
         <a href="https://github.com/kubrabozan/ab-testing-marketing-campaign/blob/main/src/ab_stats.py">Tested stats module ↗</a>
       </p>
     </div>
-    <p class="how"><b>How I worked</b>I used an AI assistant to speed up the coding and the first drafts. I set the business framing, checked every claim against the notebook output, and made the judgement calls in the recommendations.</p>
+    <p class="how"><b>How I worked</b>I used an AI assistant to speed up the coding and the first drafts. I set the business framing, checked every claim against the notebook output and made the judgement calls in the recommendations.</p>
   </div>
 </section>
 </main>
@@ -362,9 +362,9 @@ fetch("data/results.json").then(r => r.json()).then(R => {
   set("v-lift", sgn(R.rel_lift)); set("s-users", fmt(R.n_users));
   set("v-stamp", `CHANCE EXPLANATION: ${R.p_plain.toUpperCase()}`);
   set("t-c", pct(R.rate_control)); set("t-t", pct(R.rate_test));
-  set("t-inc-ci", `${fmt(R.incremental_ci[0])} – ${fmt(R.incremental_ci[1])}`); set("t-plain", R.p_plain);
+  set("t-inc-ci", `${fmt(R.incremental_ci[0])} to ${fmt(R.incremental_ci[1])}`); set("t-plain", R.p_plain);
   set("m-z", `z = ${R.z.toFixed(2)}`);
-  set("m-b", `+${Math.round(R.boot_ci[0] * 100)}% – +${Math.round(R.boot_ci[1] * 100)}%`);
+  set("m-b", `+${Math.round(R.boot_ci[0] * 100)}% to +${Math.round(R.boot_ci[1] * 100)}%`);
   set("m-p", R.bayes_prob > 0.9999 ? ">99.99%" : pct(R.bayes_prob));
   set("pw-x", (R.abs_diff / R.mde_abs).toFixed(1));
   set("b-imp", (R.impressions / 1e6).toFixed(1) + "M"); set("b-per", R.inc_per_1000.toFixed(2)); set("b-hold", fmt(R.holdout_cost));

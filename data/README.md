@@ -1,6 +1,6 @@
 # Data
 
-**Marketing A/B Testing** — Kaggle dataset by Favio Vázquez
+**Marketing A/B Testing** (Kaggle dataset by Favio Vázquez)
 <https://www.kaggle.com/datasets/faviovaz/marketing-ab-testing>
 
 | column | meaning |
