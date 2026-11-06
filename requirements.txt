@@ -1,0 +1,11 @@
+pandas>=2.2
+numpy>=2.0
+scipy>=1.13
+statsmodels>=0.14
+plotly>=5.22
+matplotlib>=3.9
+seaborn>=0.13
+jupyter>=1.0
+nbconvert>=7.16
+pytest>=8.2
+kaggle>=1.6
